@@ -1,0 +1,24 @@
+doctype html  
+html(lang='en')  
+ head
+   title Pug
+ body
+ form(method='POST' action='/landmark/addlandmark')
+     div.form-group
+       label(for='name') First Name:
+       input#name.form-control(type='text', placeholder='name' name='name' required='true' value=(undefined===author ? '' : author.name) )
+
+       label(for='country') country:
+       input#country.form-control(type='text', placeholder='country' name='country' required='true' value=(undefined===author ? '' : author.country))
+
+       label(for='contenent') contenent:
+       input#contenent.form-control(type='text', placeholder='contenent' name='contenent' required='true' value=(undefined===author ? '' : author.contenent))
+
+       label(for='visitors') visitors:
+       input#visitors.form-control(type='text', placeholder='visitors' name='visitors' required='true' value=(undefined===author ? '' : author.visitors))
+
+     button.btn.btn-primary(type='submit') Submit
+     if errors 
+       ul
+         for error in errors
+           li!= error.msg
